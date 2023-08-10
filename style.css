@@ -1,0 +1,86 @@
+/* Set up the layout and alignment */
+body {
+    --mixedColor: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--mixedColor);
+    /* transition: background-color 2s; */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color-inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.mix-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.test{
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle at 25% center, #007bff, transparent)
+}
+
+
+@property --x{
+    syntax: '<length-percentage>';
+    initialValue: '0%';
+    inherits: false;
+}
+  
+@property --y{
+    syntax: '<length-percentage>';
+    initialValue: '0%';
+    inherits: false;
+}
+
+
+
+/* Animation */
+@keyframes swirl {
+    0% {
+        background:
+            radial-gradient(circle at center center, var(--mixedColor) 0%, transparent 0%),
+            radial-gradient(circle at 25% center, var(--color1) 0%, transparent 0%),
+            radial-gradient(circle at 75% center, var(--color2) 0%, transparent 0%);
+        }
+        
+    50%{  
+        background:
+        radial-gradient(circle at center center, var(--mixedColor) 0%, transparent 10%),
+        radial-gradient(circle at 25% center, var(--color1) 0%, transparent 100%),
+        radial-gradient(circle at 75% center, var(--color2) 0%, transparent 100%);
+    }    
+    
+    75%{  
+        background:
+            radial-gradient(circle at center center, var(--mixedColor) 25%, transparent 40%),
+            radial-gradient(circle at 25% center, var(--color1) 0%, transparent 100%),
+            radial-gradient(circle at 75% center, var(--color2) 0%, transparent 100%);
+    }    
+    100% {
+        background:
+            radial-gradient(circle at center center, var(--mixedColor) 100%, transparent 100%),
+            radial-gradient(circle at 25% center, var(--color1) 0%, transparent 100%),
+            radial-gradient(circle at 75% center, var(--color2) 0%, transparent 100%);
+    }
+}
